@@ -55,10 +55,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SampleFeature.feature.cs">
+    <Compile Include="Tests\SampleFeature.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SampleFeature.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Tests\GuruTest.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GuruTest.feature</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -66,9 +71,13 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
-    <None Include="SampleFeature.feature">
+    <None Include="Tests\SampleFeature.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>SampleFeature.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Tests\GuruTest.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>GuruTest.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
