@@ -56,15 +56,13 @@
     <Reference Include="WebDriver, Version=3.9.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Selenium.WebDriver.3.9.1\lib\net45\WebDriver.dll</HintPath>
     </Reference>
+    <Reference Include="WebDriver.Support, Version=3.9.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.Support.3.9.1\lib\net45\WebDriver.Support.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Features\Step Definitions\GuruTestSteps.cs" />
-    <Compile Include="Features\SampleFeature.feature.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SampleFeature.feature</DependentUpon>
-    </Compile>
     <Compile Include="Features\Guru\GuruTest.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -76,10 +74,6 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
-    <None Include="Features\SampleFeature.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>SampleFeature.feature.cs</LastGenOutput>
-    </None>
     <None Include="Features\Guru\GuruTest.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>GuruTest.feature.cs</LastGenOutput>

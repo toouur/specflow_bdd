@@ -31,7 +31,7 @@ namespace Specflow.Features.Guru
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "guru99 Demopage Login", "  In order to Login in Demopage we have to enter login details", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "guru99 Demopage Login", null, ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -68,14 +68,14 @@ namespace Specflow.Features.Guru
         public virtual void RegisterOnGuru99DemopageWithoutEmail()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Register On Guru99 Demopage without email", ((string[])(null)));
-#line 4
+#line 5
   this.ScenarioSetup(scenarioInfo);
-#line 6
+#line 7
     testRunner.Given("I am on the Guru99 homepage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 8
+#line 9
     testRunner.When("enter blank details for register", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 10
-    testRunner.Then("error email shown", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+  testRunner.Then("error email shown", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -91,8 +91,8 @@ namespace Specflow.Features.Guru
     testRunner.Given("I am on the Guru99 homepage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 16
     testRunner.When("enter details for Register", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 18
-    testRunner.Then("login details shown", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 17
+  testRunner.Then("login details shown", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

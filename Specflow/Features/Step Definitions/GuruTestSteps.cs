@@ -6,60 +6,73 @@ using System.Threading.Tasks;
 using TechTalk.SpecFlow;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using System.Diagnostics;
+using OpenQA.Selenium.Support.UI;
 
 namespace Specflow.Tests.Guru
 {
    
+    
+
+    public static class WebDriverExtensions
+    {
+        public static IWebElement FindElement(this IWebDriver driver, By by, int timeoutInSeconds)
+        {
+            if (timeoutInSeconds > 0)
+            {
+                var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(timeoutInSeconds));
+                return wait.Until(drv => drv.FindElement(by));
+            }
+            return driver.FindElement(by);
+        }
+    }
+
     [Binding]
 
     class GuruTestSteps
     {
         IWebDriver webDriver = new ChromeDriver();
+
         [Given(@"I am on the Guru(.*) homepage")]
         public void GivenIAmOnTheGuruHomepage(int p0)
 
         {
-
+            webDriver.Manage().Window.Maximize();
             webDriver.Navigate().GoToUrl("http://demo.guru99.com");
-            webDriver.FindElement(By.CssSelector("input[type='text']")).SendKeys("andrei.patsiomkin@gmail.com");
-            webDriver.FindElement(By.Name("btnLogin")).Click();
-
-            //webDriver.Navigate().GoToUrl("https://mail.google.com");
-            // webDriver.FindElement(By.Id("Email")).SendKeys("andrei.patsiomkin@gmail.com");
-            //webDriver.FindElement(By.Id("Passwd")).SendKeys("jedemdasseine");
-            //webDriver.FindElement(By.Id("signIn")).Click();
         }
 
         [When(@"enter blank details for register")]
         public void WhenEnterBlankDetailsForRegister()
         {
-            //webDriver.Navigate().GoToUrl("https://mail.google.com");
-           // webDriver.FindElement(By.Id("Email")).SendKeys("yourEmailId");
-            //webDriver.FindElement(By.Id("Passwd")).SendKeys("yourPassword");
-            //webDriver.FindElement(By.Id("signIn")).Click();
-            //IWebDriver EmailInput = webDriver.FindElement(By.Name("emailid"));
-            //EmailInput.SendKeys("andrei.patsiomkin@gmail.com");
-            //IWebDriver Button = webDriver.FindElement(By.Name("btnLogin")).Click();
-
-            //webDriver.FindElement(By.CssSelector("input[type='text']")).SendKeys("andrei.patsiomkin@gmail.com");
+            var input = webDriver.FindElement(By.CssSelector("input[type='text']"));
+            input.SendKeys("fhbehrfbsd");
+            var btn = webDriver.FindElement(By.Name("btnLogin"));
+            btn.Click();
         }
 
         [Then(@"error email shown")]
         public void ThenErrorEmailShown()
         {
-            ScenarioContext.Current.Pending();
+            Console.WriteLine("Email is Required!");
+            System.Threading.Thread.Sleep(500);
+            webDriver.Close();
         }
 
         [When(@"enter details for Register")]
         public void WhenEnterDetailsForRegister()
         {
-            ScenarioContext.Current.Pending();
+            webDriver.Manage().Window.Maximize();
+            webDriver.Navigate().GoToUrl("http://demo.guru99.com");
+            webDriver.FindElement(By.CssSelector("input[type='text']")).SendKeys("andrei.patsiomkin@gmail.com");
+            webDriver.FindElement(By.Name("btnLogin")).Click();
         }
 
         [Then(@"login details shown")]
         public void ThenLoginDetailsShown()
         {
-            ScenarioContext.Current.Pending();
+            Console.WriteLine("Successfully registered");
+            System.Threading.Thread.Sleep(500);
+            webDriver.Close();
         }
 
 
